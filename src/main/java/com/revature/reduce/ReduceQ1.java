@@ -8,11 +8,11 @@ import org.apache.hadoop.mapreduce.Reducer;
 import org.apache.hadoop.io.Text;
 
 
-public class ReduceQ1 extends Reducer<Text, DoubleWritable, Text, IntWritable>{
+public class ReduceQ1 extends Reducer<Text, DoubleWritable, Text, DoubleWritable>{
 
 	@Override
 	protected void reduce(Text k, Iterable<DoubleWritable> values, 
-			Reducer<Text, DoubleWritable, Text, IntWritable>.Context context) throws IOException, InterruptedException{
+			Reducer<Text, DoubleWritable, Text, DoubleWritable>.Context context) throws IOException, InterruptedException{
 		
 		//gets a total of each word
 //		int total = 0;
@@ -20,11 +20,15 @@ public class ReduceQ1 extends Reducer<Text, DoubleWritable, Text, IntWritable>{
 //		for(IntWritable i: values) {
 //			total += i.get();
 //		}
+		Double d;
 		
 		for(DoubleWritable i: values) {
-			context.write(k, new IntWritable(1));
+			
+			d = i.get();
+			//check percentage is less than 30%
+			if(d < 30.0) {
+				context.write(k, i);
+			}
 		}
-		
-		//context.write(k, new IntWritable(1));
 	}
 }

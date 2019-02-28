@@ -20,8 +20,8 @@ public class P1Test {
 	
 	//harnesses
 	private MapDriver<LongWritable, Text, Text, DoubleWritable> mapDriver;
-	private ReduceDriver<Text, DoubleWritable, Text, IntWritable> reduceDriver;
-	private MapReduceDriver<LongWritable, Text, Text, DoubleWritable, Text, IntWritable> mapReduceDriver;
+	private ReduceDriver<Text, DoubleWritable, Text, DoubleWritable> reduceDriver;
+	private MapReduceDriver<LongWritable, Text, Text, DoubleWritable, Text, DoubleWritable> mapReduceDriver;
 	
 	@Before
 	public void setUp() {
@@ -37,13 +37,13 @@ public class P1Test {
 		 * Set up the reducer test harness.
 		 */
 		ReduceQ1 reducer = new ReduceQ1();
-		reduceDriver = new ReduceDriver<Text, DoubleWritable, Text, IntWritable>();
+		reduceDriver = new ReduceDriver<Text, DoubleWritable, Text, DoubleWritable>();
 		reduceDriver.setReducer(reducer);
 
 		/*
 		 * Set up the mapper/reducer test harness.
 		 */
-		mapReduceDriver = new MapReduceDriver<LongWritable, Text, Text, DoubleWritable, Text, IntWritable>();
+		mapReduceDriver = new MapReduceDriver<LongWritable, Text, Text, DoubleWritable, Text, DoubleWritable>();
 		mapReduceDriver.setMapper(mapper);
 		mapReduceDriver.setReducer(reducer);
 	}

@@ -30,8 +30,8 @@ public class Driver {
 		FileOutputFormat.setOutputPath(job, new Path(args[1]));
 		
 		job.setMapperClass(MapQ1.class);
-		//job.setReducerClass(ReduceQ1.class);
-		job.setNumReduceTasks(0);
+		job.setReducerClass(ReduceQ1.class);
+		//job.setNumReduceTasks(0);
 		//job.setCombinerClass(myCombinerClass);
 		
 		job.setOutputKeyClass(Text.class);
