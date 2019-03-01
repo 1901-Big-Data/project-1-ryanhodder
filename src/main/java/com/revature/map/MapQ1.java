@@ -2,7 +2,6 @@ package com.revature.map;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 
 import org.apache.hadoop.io.DoubleWritable;
 import org.apache.hadoop.io.IntWritable;
@@ -25,7 +24,6 @@ public class MapQ1 extends Mapper<LongWritable, Text, Text, DoubleWritable>{
 	protected void map(LongWritable key, Text value, Mapper<LongWritable, Text, Text, DoubleWritable>.Context context)
 			throws IOException, InterruptedException{
 		String l = value.toString();
-		String year = "2015";
 		double percentage = 0.0;
 		
 		String[] words = l.split("(\",\")");
@@ -36,30 +34,27 @@ public class MapQ1 extends Mapper<LongWritable, Text, Text, DoubleWritable>{
 			System.out.println("Y'all are at the first line");
 			return;
 		}
-		else {
-			if(l.contains("SE.TER.CUAT.BA.FE.ZS")) {
-				try {
-					//2015 generally filled in while 2016 is not
-					int loc = headerList.indexOf("2015");
-					//checks to see if data for 2015 exists
-					if(loc >= words.length) {
-						return;
-					}
-					
-					percentage = Double.parseDouble(words[loc]);
-//					if(percentage == 0.0) {
-//						return;
-//					}
-					
-					int cInt = headerList.indexOf("Country Name");
-					String cString = words[cInt];
-					cString = cString.substring(1, cString.length());
-					context.write(new Text(cString), new DoubleWritable(percentage));
+		//gross graduation rate
+		//instead of atleast bachelors for female
+		if(l.contains("SE.TER.CUAT.BA.FE.ZS")) {
+			try {
+				//2015 generally filled in while 2016 is not
+				int loc = headerList.indexOf("2015");
+				//checks to see if data for 2015 exists
+				if(loc >= words.length) {
+					return;
 				}
-				catch(NumberFormatException e) {
-					
-				}
+				
+				percentage = Double.parseDouble(words[loc]);
+				
+				int cInt = headerList.indexOf("Country Name");
+				String cString = words[cInt];
+				cString = cString.substring(1, cString.length());
+				context.write(new Text(cString), new DoubleWritable(percentage));
 			}
-		}	
+			catch(NumberFormatException e) {
+				
+			}
+		}
 	}
 }

@@ -14,6 +14,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.revature.map.MapQ1;
+import com.revature.map.MapQ2;
 import com.revature.reduce.ReduceQ1;
 
 public class P1Test {
@@ -29,7 +30,7 @@ public class P1Test {
 		/*
 		 * Set up the mapper test harness.
 		 */
-		MapQ1 mapper = new MapQ1();
+		MapQ2 mapper = new MapQ2();
 		mapDriver = new MapDriver<LongWritable, Text, Text, DoubleWritable>();
 		mapDriver.setMapper(mapper);
 
