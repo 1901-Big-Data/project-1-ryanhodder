@@ -16,6 +16,7 @@ import org.junit.Test;
 import com.revature.map.MapQ1;
 import com.revature.map.MapQ2;
 import com.revature.reduce.ReduceQ1;
+import com.revature.reduce.ReduceQ2;
 
 public class P1Test {
 	
@@ -37,7 +38,7 @@ public class P1Test {
 		/*
 		 * Set up the reducer test harness.
 		 */
-		ReduceQ1 reducer = new ReduceQ1();
+		ReduceQ2 reducer = new ReduceQ2();
 		reduceDriver = new ReduceDriver<Text, DoubleWritable, Text, DoubleWritable>();
 		reduceDriver.setReducer(reducer);
 

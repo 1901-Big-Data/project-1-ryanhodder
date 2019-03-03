@@ -11,6 +11,7 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import com.revature.map.MapQ1;
 import com.revature.map.MapQ2;
 import com.revature.reduce.ReduceQ1;
+import com.revature.reduce.ReduceQ2;
 
 public class Driver {
 	
@@ -31,8 +32,8 @@ public class Driver {
 		FileOutputFormat.setOutputPath(job, new Path(args[1]));
 		
 		job.setMapperClass(MapQ2.class);
-		//job.setReducerClass(ReduceQ1.class);
-		job.setNumReduceTasks(0);
+		job.setReducerClass(ReduceQ2.class);
+		//job.setNumReduceTasks(0);
 		//job.setCombinerClass(myCombinerClass);
 		
 		job.setOutputKeyClass(Text.class);
