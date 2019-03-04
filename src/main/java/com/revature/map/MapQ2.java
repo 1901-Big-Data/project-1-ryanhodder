@@ -50,16 +50,12 @@ public class MapQ2 extends Mapper<LongWritable, Text, Text, DoubleWritable>{
 				}
 				if(l.contains("secondary") && l.contains("female (% net)")) {
 					for(int j = i; j < headerList.size(); j++) {
-						//now do some checking that the percentage is actually allgood I guess
-						//or do I just want to pass it like it is and then have the reducer deal with it
 						percent = Double.parseDouble(words[j]);
 						context.write(new Text(words[indicator]), new DoubleWritable(percent));
 					}
 				}
 				if(l.contains("tertiary") && l.contains("female (% gross)")) {
 					for(int j = i; j < headerList.size(); j++) {
-						//now do some checking that the percentage is actually allgood I guess
-						//or do I just want to pass it like it is and then have the reducer deal with it
 						percent = Double.parseDouble(words[j]);
 						context.write(new Text(words[indicator]), new DoubleWritable(percent));
 					}

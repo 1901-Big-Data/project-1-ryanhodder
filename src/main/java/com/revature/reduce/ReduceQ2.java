@@ -10,6 +10,10 @@ import org.apache.hadoop.mapreduce.Reducer;
 
 public class ReduceQ2 extends Reducer<Text, DoubleWritable, Text, DoubleWritable>{
 
+	/**
+	 * Reducer method for question 2
+	 * Assumes all data values exist and are valid
+	 */
 	@Override
 	protected void reduce(Text k, Iterable<DoubleWritable> values, 
 			Reducer<Text, DoubleWritable, Text, DoubleWritable>.Context context) throws IOException, InterruptedException{
@@ -38,9 +42,7 @@ public class ReduceQ2 extends Reducer<Text, DoubleWritable, Text, DoubleWritable
 		//should be actually one less than in the list
 		total = (total / (diff.size()-1));
 		DecimalFormat dp = new DecimalFormat("#.000");
-		//want to think about shortening to just a few dp
-		//5dp because that is what the data is in
-		//dont want to be more accurate
+		//dont want to be more accurate than the data provided
 		context.write(k, new DoubleWritable(new Double(dp.format(total))));
 	}
 }
