@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import org.apache.hadoop.io.DoubleWritable;
-import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
@@ -26,18 +25,19 @@ public class MapQ1 extends Mapper<LongWritable, Text, Text, DoubleWritable>{
 		String l = value.toString();
 		double percentage = 0.0;
 		
+		//Split on the comma separation
+		//Need to account for the first and final split for the extra quotations
 		String[] words = l.split("(\",\")");
-		//("([^"]|"")*")
 		
 		//checks to see if it is the first line of the file
 		if(words[0].matches("Country Name")) {
-			System.out.println("Y'all are at the first line");
 			return;
 		}
 		//gross graduation rate
 		//instead of atleast bachelors for female
 		if(l.contains("SE.TER.CUAT.BA.FE.ZS")) {
 			try {
+				//**Assumption that 2015 data slots are all filled for this data type
 				//2015 generally filled in while 2016 is not
 				int loc = headerList.indexOf("2015");
 				//checks to see if data for 2015 exists

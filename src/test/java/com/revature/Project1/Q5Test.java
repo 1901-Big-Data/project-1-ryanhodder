@@ -13,12 +13,11 @@ import org.apache.hadoop.mrunit.mapreduce.ReduceDriver;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.revature.map.MapQ1;
-import com.revature.map.MapQ2;
-import com.revature.reduce.ReduceQ1;
-import com.revature.reduce.ReduceQ2;
+import com.revature.map.MapQ5;
+import com.revature.reduce.ReduceQ5;
 
-public class P1Test {
+
+public class Q5Test {
 	
 	//harnesses
 	private MapDriver<LongWritable, Text, Text, DoubleWritable> mapDriver;
@@ -31,14 +30,14 @@ public class P1Test {
 		/*
 		 * Set up the mapper test harness.
 		 */
-		MapQ2 mapper = new MapQ2();
+		MapQ5 mapper = new MapQ5();
 		mapDriver = new MapDriver<LongWritable, Text, Text, DoubleWritable>();
 		mapDriver.setMapper(mapper);
 
 		/*
 		 * Set up the reducer test harness.
 		 */
-		ReduceQ2 reducer = new ReduceQ2();
+		ReduceQ5 reducer = new ReduceQ5();
 		reduceDriver = new ReduceDriver<Text, DoubleWritable, Text, DoubleWritable>();
 		reduceDriver.setReducer(reducer);
 
