@@ -12,10 +12,12 @@ import com.revature.map.MapQ1;
 import com.revature.map.MapQ2;
 import com.revature.map.MapQ3;
 import com.revature.map.MapQ4;
+import com.revature.map.MapQ5;
 import com.revature.reduce.ReduceQ1;
 import com.revature.reduce.ReduceQ2;
 import com.revature.reduce.ReduceQ3;
 import com.revature.reduce.ReduceQ4;
+import com.revature.reduce.ReduceQ5;
 
 public class Driver {
 	
@@ -35,8 +37,8 @@ public class Driver {
 		FileInputFormat.setInputPaths(job, new Path(args[0]));
 		FileOutputFormat.setOutputPath(job, new Path(args[1]));
 		
-		job.setMapperClass(MapQ3.class);
-		job.setReducerClass(ReduceQ3.class);
+		job.setMapperClass(MapQ5.class);
+		job.setReducerClass(ReduceQ5.class);
 		//job.setNumReduceTasks(0);
 		//job.setCombinerClass(myCombinerClass);
 		

@@ -22,6 +22,41 @@ public class MapQ5 extends Mapper<LongWritable, Text, Text, DoubleWritable>{
 	@Override
 	protected void map(LongWritable key, Text value, Mapper<LongWritable, Text, Text, DoubleWritable>.Context context)
 			throws IOException, InterruptedException{
+		String l = value.toString();
+		Double percent;
 		
+		String[] words = l.split("(\",\")");
+		
+		if(l.contains("NZL") && l.contains("School enrollment")) {
+			try {
+				int i = headerList.indexOf("2000");
+				int indicator = headerList.indexOf("Indicator Name");
+				
+				if(l.contains("primary") && l.contains("female (% net)")) {
+					for(int j = i; j < headerList.size(); j++) {
+						//now do some checking that the percentage is actually allgood I guess
+						//or do I just want to pass it like it is and then have the reducer deal with it
+						percent = Double.parseDouble(words[j]);
+						context.write(new Text(words[indicator]), new DoubleWritable(percent));
+					}
+				}
+				if(l.contains("secondary") && l.contains("female (% net)")) {
+					for(int j = i; j < headerList.size(); j++) {
+						percent = Double.parseDouble(words[j]);
+						context.write(new Text(words[indicator]), new DoubleWritable(percent));
+					}
+				}
+				if(l.contains("tertiary") && l.contains("female (% gross)")) {
+					for(int j = i; j < headerList.size(); j++) {
+						percent = Double.parseDouble(words[j]);
+						context.write(new Text(words[indicator]), new DoubleWritable(percent));
+					}
+				}
+			}
+			catch(NumberFormatException e) {
+				
+			}
+			
+		}
 	}
 }
