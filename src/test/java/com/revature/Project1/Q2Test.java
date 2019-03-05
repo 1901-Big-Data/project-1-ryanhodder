@@ -204,65 +204,6 @@ public class Q2Test {
 		mapDriver.runTest();
 	}
 	
-//	/**
-//	 * Tests little piece of data to make sure it is taking the average
-//	 */
-//	@Test
-//	public void testReducerGoodData() {
-//		List<DoubleWritable> testList = new ArrayList<DoubleWritable>();
-//		testList.add(new DoubleWritable(20.0));
-//		testList.add(new DoubleWritable(30.0));
-//		testList.add(new DoubleWritable(40.0));
-//		
-//		reduceDriver.withInput(new Text("New Zealand"), testList);
-//		reduceDriver.withOutput(new Text("New Zealand"), new DoubleWritable(30.0));
-//		reduceDriver.runTest();
-//	}
-//	
-//	/**
-//	 * Test data that should be filtered out (over 30%)
-//	 * No output
-//	 */
-//	@Test
-//	public void testReducerTooHigh() {
-//		List<DoubleWritable> testList = new ArrayList<DoubleWritable>();
-//		testList.add(new DoubleWritable(45.0));
-//		
-//		reduceDriver.withInput(new Text("New Zealand"), testList);
-//		reduceDriver.runTest();
-//	}
-//	
-//	/**
-//	 * MapReduce with good data
-//	 * Should be same results as the mapper itself
-//	 */
-//	@Test
-//	public void testMapReduceGoodData() {
-//		String input = "\"New Zealand\",\"NZL\",\"Educational attainment, at least Bachelor's or equivalent, population 25+, female (%) (cumulative)\",\"SE.TER.CUAT.BA.FE.ZS\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"27.29524\",\"27.85181\",\"\",";
-//		mapReduceDriver.withInput(new LongWritable(1), new Text(input));
-//		mapReduceDriver.withOutput(new Text("New Zealand"), new DoubleWritable(27.85181));
-//		mapReduceDriver.runTest();
-//	}
-//	
-//	/**
-//	 * Data that should be filtered out
-//	 */
-//	@Test
-//	public void testMapReduceBadData() {
-//		String input = "\"New Zealand\",\"NZL\",\"Educational attainment, at least Bachelor's or equivalent, population 25+, female (%) (cumulative)\",\"SE.TER.CUAT.BA.FE.ZS\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"27.29524\",\"47.85181\",\"\",";
-//		mapReduceDriver.withInput(new LongWritable(1), new Text(input));
-//		mapReduceDriver.runTest();
-//	}
-//	
-//	/**
-//	 * No data at 2015 position
-//	 */
-//	@Test
-//	public void testMapReduceNoData() {
-//		String input = "\"New Zealand\",\"NZL\",\"Educational attainment, at least Bachelor's or equivalent, population 25+, female (%) (cumulative)\",\"SE.TER.CUAT.BA.FE.ZS\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"27.29524\",\"\",\"\",";
-//		mapReduceDriver.withInput(new LongWritable(1), new Text(input));
-//		mapReduceDriver.runTest();
-//	}
 	 /**
 	  * First line of file
 	  */

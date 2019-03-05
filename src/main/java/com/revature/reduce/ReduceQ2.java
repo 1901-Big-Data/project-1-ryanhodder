@@ -36,7 +36,7 @@ public class ReduceQ2 extends Reducer<Text, DoubleWritable, Text, DoubleWritable
 			d = yearValues.get(i) - yearValues.get(i - 1);
 			diff.add(d);
 		}
-		for(double y: diff) {
+		for(Double y: diff) {
 			total += y;
 		}
 		//should be actually one less than in the list

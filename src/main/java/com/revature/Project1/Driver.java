@@ -37,8 +37,8 @@ public class Driver {
 		FileInputFormat.setInputPaths(job, new Path(args[0]));
 		FileOutputFormat.setOutputPath(job, new Path(args[1]));
 		
-		job.setMapperClass(MapQ5.class);
-		job.setReducerClass(ReduceQ5.class);
+		job.setMapperClass(MapQ2.class);
+		job.setReducerClass(ReduceQ2.class);
 		//job.setNumReduceTasks(0);
 		//job.setCombinerClass(myCombinerClass);
 		
